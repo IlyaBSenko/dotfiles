@@ -39,4 +39,38 @@ return {
 		},
 		event = "BufReadPre",
 	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		main = "nvim-treesitter.configs",
+		opts = {
+			ensure_installed = {
+				"python", "java", "javascript", "swift", "c", "html", "css", "lua", "markdown", "markdown_inline", "rust", "cpp"
+			},
+			auto_install = true,
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = {"ruby"},
+			},
+			indent = {enable = true, disable = {"ruby"}},
+		}
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		event = "InsertEnter",
+		opts = {},
+	},
+	{ "tpope/vim-sleuth" },
+	{ "andweeb/presence.nvim", event = "VeryLazy" }, 
+	{ "wakatime/vim-wakatime", event = "VeryLazy" },
+	{
+		"smjonas/inc-rename.nvim",
+		opts = {},
+		keys = { { "<leader>rn", ":IncRename ", mode = { "n" } } },
+	    },
 }
