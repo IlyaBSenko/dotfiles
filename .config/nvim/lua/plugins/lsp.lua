@@ -207,6 +207,7 @@ return {
 				--
 
 				html = {},
+				ruby_lsp = {},
 				cssls = {},
 				cssmodules_ls = {},
 				css_variables = {},

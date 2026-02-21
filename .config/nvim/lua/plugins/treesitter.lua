@@ -24,7 +24,6 @@ return {
           "rust",
           "latex",
           "markdown",
-          "assembly"
         },
         auto_install = true,
       })
