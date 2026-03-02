@@ -1,34 +1,19 @@
 -- This file contains configuration for plugins that modify or add to the behavior of the editor
 return {
-	-- Comment toggling
+	-- Comment toggling 
 	{
-		"numToStr/Comment.nvim",
-		opts = {
-			pre_hook = function()
-				return vim.bo.commentstring
-			end,
-		},
-		event = { "BufReadPre", "BufNewFile" },
-		keys = {
-			{
-				"<leader>/",
-				function()
-					require("Comment.api").toggle.linewise.current()
-				end,
-				mode = { "n", "x" },
-				desc = "Toggle comment",
-			},
-			{
-				"<leader>/",
-				"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-				mode = "v",
-				desc = "Toggle comment",
-			},
-		},
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter",
-		},
+        "numToStr/Comment.nvim",
+        opts = {
+            pre_hook = function()
+                return vim.bo.commentstring
+            end,
+        },
+        event = "VeryLazy",
+        keys = { { "<leader>/", mode = { "n", "x" } } },
+        dependencies = {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "nvim-treesitter/nvim-treesitter",
+        },
 	},
 
 	-- Git related signs in the gutter for tracking additions, modifications, and deletions
@@ -45,7 +30,7 @@ return {
 		main = "nvim-treesitter.configs",
 		opts = {
 			ensure_installed = {
-				"python", "java", "javascript", "swift", "c", "html", "css", "lua", "markdown", "markdown_inline", "rust", "cpp"
+				"python", "java", "javascript", "swift", "c", "html", "css", "lua", "markdown", "markdown_inline", "rust", "cpp", "bash"
 			},
 			auto_install = true,
 			highlight = {
@@ -66,8 +51,8 @@ return {
 		opts = {},
 	},
 	{ "tpope/vim-sleuth" },
-	{ "andweeb/presence.nvim", event = "VeryLazy" }, 
-	{ "wakatime/vim-wakatime", event = "VeryLazy" },
+	{ "andweeb/presence.nvim", event = "VeryLazy" },
+	{ "wakatime/vim-wakatime" },
 	{
 		"smjonas/inc-rename.nvim",
 		opts = {},
