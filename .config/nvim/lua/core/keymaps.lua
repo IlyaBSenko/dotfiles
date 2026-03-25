@@ -60,3 +60,4 @@ vim.keymap.set(
 	[[:<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>]],
 	{ desc = "Insert a blank line above the cursor" }
 )
+
